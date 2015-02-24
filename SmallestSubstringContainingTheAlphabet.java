@@ -30,6 +30,7 @@ public class SmallestSubstringContainingTheAlphabet {
         String minString = "";
 
         String sub;
+        // finding all the substrings
         for (int i = 0; i < string.length(); i++) {
             for (int j = 1; j <= string.length() - i; j++) {
                 sub = string.substring(i, i + j);
