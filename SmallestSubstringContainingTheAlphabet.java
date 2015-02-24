@@ -13,8 +13,8 @@ import java.util.Arrays;
  */
 public class SmallestSubstringContainingTheAlphabet {
 
-        public static String sortingString(String az) {
-        char[] a = az.toCharArray();
+        public static String sortingString(String string) {
+        char[] a = string.toCharArray();
         Arrays.sort(a);
         return new String(a);
     }
