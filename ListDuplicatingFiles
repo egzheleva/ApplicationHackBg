@@ -1,0 +1,37 @@
+    public void listDuplicatingFiles(Path dir) {
+        File myFile = dir.toFile();
+        List<File> nonDuplicated = new LinkedList<File>();
+
+        for (File fileEntry : myFile.listFiles()) {
+            if (fileEntry.isDirectory()) {
+
+                
+                System.out.println(fileEntry.getName());
+                listDuplicatingFiles(fileEntry.toPath());
+                
+            } else {
+                if (!isDuplicated(nonDuplicated, fileEntry)) {
+                    nonDuplicated.add(fileEntry);
+                }
+                //System.out.println(fileEntry.getName());
+            }
+        }
+
+        for (File file : nonDuplicated) {
+            System.out.println(file);
+        }
+
+    }
+
+    public boolean isDuplicated(List<File> list, File file) {
+        for (File check : list) {
+            try {
+                if (FileUtils.contentEquals(check, file)) {
+                    return true;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(HackBg.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
