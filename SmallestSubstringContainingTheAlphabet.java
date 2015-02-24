@@ -1,5 +1,20 @@
-    public String sortingString(String string) {
-        char[] a = string.toCharArray();
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package smallestsubstringcontainingthealphabet;
+
+import java.util.Arrays;
+
+/**
+ *
+ * @author eli
+ */
+public class SmallestSubstringContainingTheAlphabet {
+
+        public static String sortingString(String az) {
+        char[] a = az.toCharArray();
         Arrays.sort(a);
         return new String(a);
     }
@@ -15,7 +30,6 @@
         String minString = "";
 
         String sub;
-        // finding all the substrings
         for (int i = 0; i < string.length(); i++) {
             for (int j = 1; j <= string.length() - i; j++) {
                 sub = string.substring(i, i + j);
@@ -33,3 +47,8 @@
 
         return minString;
     }
+    public static void main(String[] args) {
+        System.out.println(SmallestSubstringContainingTheAlphabet.sortingString("opqrstuvwxyz!*abcdefghijklmn"));
+    }
+    
+}
